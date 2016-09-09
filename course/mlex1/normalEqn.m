@@ -5,7 +5,12 @@ function [theta] = normalEqn(X, y)
 
 theta = zeros(size(X, 2), 1);
 
-% ====================== YOUR CODE HERE ======================
+% ============================================
+% code to compute the closed form solution for linear regression
+
+theta=inv((X'*X))*X'*y;
+
+% -------------------------------------------------------------
 
 
 % ============================================================

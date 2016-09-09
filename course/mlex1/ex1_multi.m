@@ -1,5 +1,7 @@
 %  Linear regression with multiple variables
 
+%% Initialization
+
 %% ================ Part 1: Feature Normalization ================
 
 %% Clear and Close Figures
@@ -28,9 +30,7 @@ fprintf('Normalizing Features ...\n');
 % Add intercept term to X
 X = [ones(m, 1) X];
 
-
-%% ================ Part 2: Gradient Descent ================
-
+% ============================================
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
@@ -54,7 +54,16 @@ fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ============================================
-price = 0; % 
+% first column of X is all-ones. Thus, it does not need to be normalized.
+X=[1650,3];
+
+for n=1:size(X,2)
+	X(1,n)=(X(1,n)-mu(n))/sigma(n);
+end
+
+X = [ones(1, 1) X];
+
+price = X *theta;
 
 % ============================================================
 
@@ -64,11 +73,10 @@ fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-%% ================ Part 3: Normal Equations ================
-
 fprintf('Solving with normal equations...\n');
 
-% ============================================
+% computes the closed form solution for linear regression using the normal
+% equations.
 %
 
 %% Load Data
@@ -90,8 +98,8 @@ fprintf('\n');
 
 
 % Estimate the price of a 1650 sq-ft, 3 br house
-% ============================================
-price = 0;
+X=[1,1650,3];
+price = X *theta;
 
 
 % ============================================================

@@ -8,13 +8,7 @@ J_history = zeros(num_iters, 1);
 
 for iter = 1:num_iters
 
-    % ============================================
-    % single gradient step on the parameter vector theta. 
-    %
-
-
-
-    % ============================================================
+    theta = theta - (alpha * ((X' * (X * theta - y))/m));
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCostMulti(X, y, theta);
