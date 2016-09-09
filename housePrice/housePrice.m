@@ -1,4 +1,5 @@
 %  Linear regression with multiple variables
+% House price prediction based on size and number of rooms
 
 %% Initialization
 
@@ -10,7 +11,7 @@ clear ; close all; clc
 fprintf('Loading data ...\n');
 
 %% Load Data
-data = load('ex1data2.txt');
+data = load('houseData.txt');
 X = data(:, 1:2);
 y = data(:, 3);
 m = length(y);
@@ -80,7 +81,7 @@ fprintf('Solving with normal equations...\n');
 %
 
 %% Load Data
-data = csvread('ex1data2.txt');
+data = csvread('houseData.txt');
 X = data(:, 1:2);
 y = data(:, 3);
 m = length(y);
