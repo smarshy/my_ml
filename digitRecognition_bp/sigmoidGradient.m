@@ -7,16 +7,7 @@ function g = sigmoidGradient(z)
 
 g = zeros(size(z));
 
-% =============================================================
-
-
-
-
-
-
-% =============================================================
-
-
-
+% element by element mult
+g = sigmoid(z).*(1-sigmoid(z));
 
 end
