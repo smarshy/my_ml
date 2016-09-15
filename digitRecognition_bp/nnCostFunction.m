@@ -33,7 +33,8 @@ a3 = sigmoid(a2*Theta2');
 yVector = repmat([1:num_labels], m, 1) == repmat(y, 1, num_labels);
 J = sum(sum((-yVector.*log(a3) - (1-yVector).*log(1 - a3))))/m;
 
-
+% adding regularized cost
+J= J + (lambda/(2*m))*(sum(sum(Theta1(:,2:end).^2 ))+ sum(sum(Theta2(:,2:end).^2)))
 
 % =========================================================================
 
