@@ -25,10 +25,15 @@ Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
 
 % ============================================
-%
+
+% cost without regularization
+a1 = [ones(m, 1) X];
+a2= [ones(m, 1) sigmoid(a1*Theta1')];
+a3 = sigmoid(a2*Theta2');
+yVector = repmat([1:num_labels], m, 1) == repmat(y, 1, num_labels);
+J = sum(sum((-yVector.*log(a3) - (1-yVector).*log(1 - a3))))/m;
 
 
-% ---------------------------------------------------------
 
 % =========================================================================
 
