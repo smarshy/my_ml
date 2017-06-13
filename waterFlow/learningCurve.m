@@ -22,6 +22,15 @@ error_train = zeros(m, 1);
 error_val   = zeros(m, 1);
 
 % ===================================================
+% Returns training errors in error_train and the cross validation errors in error_val. 
+% i.e., error_train(i) and error_val(i) should give you the errors
+% obtained after training on i examples.
+
+for i = 1:m
+    theta = trainLinearReg(X(1:i, :), y(1:i), lambda);
+    error_train(i) = linearRegCostFunction(X(1:i, :), y(1:i), theta, 0);
+    error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+end
 
 % =========================================================================
 
