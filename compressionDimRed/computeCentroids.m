@@ -24,12 +24,10 @@ centroids = zeros(K, n);
 %               centroid i.
 
 
-
-
-
-
-
-
+for i = 1:K
+	examples=X(find(idx == i),:);
+    centroids(i,:) = mean(examples);
+end
 
 % =============================================================
 
