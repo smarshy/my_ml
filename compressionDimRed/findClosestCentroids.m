@@ -18,10 +18,15 @@ idx = zeros(size(X,1), 1);
 %               closest to example i. Hence, it should be a value in the 
 %               range 1..K
 
+m = size(X,1)
+distance_mat=zeros(m,K)
+for j=1:K	
+	for i=1:m
+		distance_mat(i,j)=sqrt(sum((X(i,:)-centroids(j,:)).^2));
+	end
+end
 
-
-
-
+[M,idx] = min(distance_mat,[],2);
 
 
 % =============================================================
