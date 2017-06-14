@@ -94,12 +94,12 @@ while ~isempty(email_contents)
     %
 
 
-
-
-
-
-
-
+    % added THIS HERE
+    match=strcmp(str,vocabList);
+    idx=find(match);
+    if (idx)
+        word_indices=[word_indices;idx];
+    end
 
 
     % =============================================================
