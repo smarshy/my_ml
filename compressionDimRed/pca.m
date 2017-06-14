@@ -17,10 +17,7 @@ S = zeros(n);
 %               and eigenvalues of the covariance matrix. 
 %
 
-
-
-
-
+[U, S, X] = svd((X' * X) ./ m);
 
 
 % =========================================================================
